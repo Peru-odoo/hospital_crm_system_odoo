@@ -9,5 +9,8 @@
             <menuitem id="menu_hospital_doctor" name="Doctor" action="hospital_service.action_hospital_doctor"/>
             <menuitem id="menu_hospital_patient" name="Patient" action="hospital_service.action_hospital_patient"/>
         </menuitem>
+        <menuitem id="menu_hospital_settings" name="Settings">
+            <menuitem id="menu_hospital_directory_disease" name="Directory diseases" action="hospital_service.action_hospital_disease_tree"/>
+        </menuitem>
     </menuitem>
 </odoo>
