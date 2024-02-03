@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem name = "Hospital Service" id="menu_root_hospital_service" web_icon="hospital_service,static/description/icon.png">
+        <menuitem id="menu_hospital_service" name="Visit to the doctor">
+            <menuitem id="menu_visit" name="Visit" action="hospital_service.action_hospital"/>
+        </menuitem>
+<!--        <menuitem id="menu_property_ads_settings" name="Users">-->
+<!--            <menuitem id="menu_property_type" name="Property Types" action="real_estate_ads.action_property_type"/>-->
+<!--        </menuitem>-->
+    </menuitem>
+</odoo>
