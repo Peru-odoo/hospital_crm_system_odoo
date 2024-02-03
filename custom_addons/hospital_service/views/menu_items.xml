@@ -6,6 +6,8 @@
         </menuitem>
         <menuitem id="menu_hospital_users" name="Users">
             <menuitem id="menu_hospital_contact_person" name="Contact person" action="hospital_service.action_hospital_contact_person"/>
+            <menuitem id="menu_hospital_doctor" name="Doctor" action="hospital_service.action_hospital_doctor"/>
+
         </menuitem>
     </menuitem>
 </odoo>
