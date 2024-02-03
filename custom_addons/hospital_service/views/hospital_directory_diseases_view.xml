@@ -1,37 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="view_disease_tree" model="ir.ui.view">
-            <field name="name">hospital.disease.tree</field>
-            <field name="model">hospital.disease</field>
-            <field name="arch" type="xml">
-                <tree string="Disease Tree">
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="description"/>
-                </tree>
-            </field>
-        </record>
-        <record id="view_disease_form" model="ir.ui.view">
-            <field name="name">hospital.disease.form</field>
-            <field name="model">hospital.disease</field>
-            <field name="arch" type="xml">
-                <form>
-                    <group>
-                        <field name="name"/>
-                        <field name="code"/>
-                        <field name="description"/>
-                        <field name="parent_id"/>
-                    </group>
-                </form>
-            </field>
-        </record>
         <record id="action_hospital_disease_tree" model="ir.actions.act_window">
             <field name="name">Disease Directory</field>
             <field name="res_model">hospital.disease</field>
             <field name="view_mode">tree,form</field>
         </record>
-        <menuitem id="menu_disease_root" name="Hospital Services" web_icon="hospital_service,static/description/icon.png"/>
-        <menuitem id="menu_disease" name="Disease" parent="menu_disease_root" action="action_hospital_disease_tree"/>
     </data>
 </odoo>

@@ -11,6 +11,7 @@
         </menuitem>
         <menuitem id="menu_hospital_settings" name="Settings">
             <menuitem id="menu_hospital_directory_disease" name="Directory diseases" action="hospital_service.action_hospital_disease_tree"/>
+            <menuitem id="menu_hospital_research_type" name="Research type" action="hospital_service.action_hospital_research_type"/>
         </menuitem>
     </menuitem>
 </odoo>

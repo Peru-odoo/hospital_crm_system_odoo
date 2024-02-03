@@ -10,4 +10,7 @@ hospital_service.access_hospital_patient,access_hospital_patient,hospital_servic
 
 hospital_service.access_hospital_disease,access_hospital_disease,hospital_service.model_hospital_disease,base.group_user,1,1,1,1
 
+hospital_service.access_hospital_research,access_hospital_research,hospital_service.model_hospital_research,base.group_user,1,1,1,1
+
+
 
