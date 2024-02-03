@@ -4,8 +4,8 @@
         <menuitem id="menu_hospital_service" name="Visit to the doctor">
             <menuitem id="menu_visit" name="Visit" action="hospital_service.action_hospital"/>
         </menuitem>
-<!--        <menuitem id="menu_property_ads_settings" name="Users">-->
-<!--            <menuitem id="menu_property_type" name="Property Types" action="real_estate_ads.action_property_type"/>-->
-<!--        </menuitem>-->
+        <menuitem id="menu_hospital_users" name="Users">
+            <menuitem id="menu_hospital_contact_person" name="Contact person" action="hospital_service.action_hospital_contact_person"/>
+        </menuitem>
     </menuitem>
 </odoo>

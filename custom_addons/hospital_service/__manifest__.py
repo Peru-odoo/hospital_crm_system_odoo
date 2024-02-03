@@ -8,6 +8,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/hospital_service_view.xml",
+        "views/hospital_contact_person_view.xml",
         "views/menu_items.xml",
     ],
     "installable": True,
