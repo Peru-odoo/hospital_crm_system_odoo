@@ -5,3 +5,6 @@ hospital_service.access_hospital_visit,access_hospital_visit,hospital_service.mo
 hospital_service.access_hospital_contactperson,access_hospital_contactperson,hospital_service.model_hospital_contactperson,base.group_user,1,1,1,1
 
 hospital_service.access_hospital_doctor,access_hospital_doctor,hospital_service.model_hospital_doctor,base.group_user,1,1,1,1
+
+hospital_service.access_hospital_patient,access_hospital_patient,hospital_service.model_hospital_patient,base.group_user,1,1,1,1
+
