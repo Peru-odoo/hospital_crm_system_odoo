@@ -14,6 +14,8 @@ hospital_service.access_hospital_research,access_hospital_research,hospital_serv
 
 hospital_service.access_hospital_sample,access_hospital_sample,hospital_service.model_hospital_sample,base.group_user,1,1,1,1
 
+hospital_service.access_hospital_doctor_schedule,access_hospital_doctor_schedule,hospital_service.model_hospital_doctor_schedule,base.group_user,1,1,1,1
+
 
 
 
