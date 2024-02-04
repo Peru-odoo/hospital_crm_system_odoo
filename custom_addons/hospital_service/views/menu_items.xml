@@ -17,6 +17,7 @@
         </menuitem>
         <menuitem id="menu_hospital_constructor" name="Constructor">
             <menuitem id="menu_hospital_doctor_visit" name="Doctor Visit" action="hospital_service.action_hospital_doctor_visit"/>
+            <menuitem id="menu_hospital_research" name="Research" action="hospital_service.action_hospital_research"/>
         </menuitem>
     </menuitem>
 </odoo>

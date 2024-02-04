@@ -16,6 +16,7 @@
         "views/hospital_sample_type_view.xml",
         "views/hospital_doctor_schedule_view.xml",
         "views/hospital_doctor_visit_view.xml",
+        "views/hospital_research_view.xml",
         "views/menu_items.xml",
     ],
     "installable": True,

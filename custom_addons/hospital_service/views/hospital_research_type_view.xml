@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="action_hospital_research_tree_view" model="ir.ui.view">
-            <field name="name">hospital.research.tree</field>
-            <field name="model">hospital.research</field>
+        <record id="action_hospital_research_type_tree_view" model="ir.ui.view">
+            <field name="name">hospital.research_type.tree</field>
+            <field name="model">hospital.research_type</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -13,9 +13,9 @@
                 </tree>
             </field>
          </record>
-        <record id="action_hospital_research_form_view" model="ir.ui.view">
-            <field name="name">hospital.research.form</field>
-            <field name="model">hospital.research</field>
+        <record id="action_hospital_research_type_form_view" model="ir.ui.view">
+            <field name="name">hospital.research_type.form</field>
+            <field name="model">hospital.research_type</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -32,9 +32,9 @@
         </record>
         <record id="action_hospital_research_type" model="ir.actions.act_window">
             <field name="name">Research Types</field>
-            <field name="res_model">hospital.research</field>
+            <field name="res_model">hospital.research_type</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="action_hospital_research_tree_view"/>
+            <field name="view_id" ref="action_hospital_research_type_tree_view"/>
             <field name="help" type="html">
                 <p class="o_view_noconten_smiling_face">
                         Create a new research type

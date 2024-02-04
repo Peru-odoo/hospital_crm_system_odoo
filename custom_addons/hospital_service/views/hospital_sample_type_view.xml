@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="action_hospital_sample_tree_view" model="ir.ui.view">
-            <field name="name">hospital.sample.tree</field>
-            <field name="model">hospital.sample</field>
+        <record id="action_hospital_sample_type_tree_view" model="ir.ui.view">
+            <field name="name">hospital.sample_type.tree</field>
+            <field name="model">hospital.sample_type</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -11,9 +11,9 @@
                 </tree>
             </field>
          </record>
-        <record id="action_hospital_sample_form_view" model="ir.ui.view">
-            <field name="name">hospital.sample.form</field>
-            <field name="model">hospital.sample</field>
+        <record id="action_hospital_sample_type_form_view" model="ir.ui.view">
+            <field name="name">hospital.sample_type.form</field>
+            <field name="model">hospital.sample_type</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -28,9 +28,9 @@
         </record>
         <record id="action_hospital_sample_type" model="ir.actions.act_window">
             <field name="name">Sample Types</field>
-            <field name="res_model">hospital.sample</field>
+            <field name="res_model">hospital.sample_type</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="action_hospital_sample_tree_view"/>
+            <field name="view_id" ref="action_hospital_sample_type_tree_view"/>
             <field name="help" type="html">
                 <p class="o_view_noconten_smiling_face">
                         Create a new sample type

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_hospital_research_tree_view" model="ir.ui.view">
+            <field name="name">hospital.research.tree</field>
+            <field name="model">hospital.research</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="patient"/>
+                    <field name="doctor"/>
+                </tree>
+            </field>
+         </record>
+        <record id="action_hospital_research_form_view" model="ir.ui.view">
+            <field name="name">hospital.research.form</field>
+            <field name="model">hospital.research</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="patient"/>
+                            <field name="doctor"/>
+                            <field name="research_type"/>
+                            <field name="sample_type"/>
+                            <field name="conclusions"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_hospital_research" model="ir.actions.act_window">
+            <field name="name">Research</field>
+            <field name="res_model">hospital.research</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="action_hospital_research_tree_view"/>
+            <field name="help" type="html">
+                <p class="o_view_noconten_smiling_face">
+                        Create a new research
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
