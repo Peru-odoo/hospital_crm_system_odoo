@@ -20,10 +20,10 @@
                         <group>
                             <field name="doctor"/>
                             <field name="patient"/>
-                            <field name="appointment"/>
-                            <field name="visit_datetime"/>
-                            <field name="recommendations"/>
-                            <field name="is_completed"/>
+                            <field name="appointment_date"/>
+                            <field name="appointment_time"/>
+
+
                         </group>
                     </sheet>
                 </form>
