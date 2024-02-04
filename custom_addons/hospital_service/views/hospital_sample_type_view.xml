@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <record id="action_hospital_sample_tree_view" model="ir.ui.view">
+            <field name="name">hospital.sample.tree</field>
+            <field name="model">hospital.sample</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+         </record>
+        <record id="action_hospital_sample_form_view" model="ir.ui.view">
+            <field name="name">hospital.sample.form</field>
+            <field name="model">hospital.sample</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
         <record id="action_hospital_sample_type" model="ir.actions.act_window">
             <field name="name">Sample Types</field>
             <field name="res_model">hospital.sample</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="action_hospital_sample_tree_view"/>
             <field name="help" type="html">
                 <p class="o_view_noconten_smiling_face">
                         Create a new sample type

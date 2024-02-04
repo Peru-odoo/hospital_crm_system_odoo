@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
+        <record id="action_hospital_patient_tree_view" model="ir.ui.view">
+            <field name="name">hospital.patient.tree</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="gender"/>
+                    <field name="birth_date"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+         </record>
+        <record id="action_hospital_patient_form_view" model="ir.ui.view">
+            <field name="name">hospital.patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="photo"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="passport_data"/>
+                            <field name="contact_person"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
         <record id="action_hospital_patient" model="ir.actions.act_window">
             <field name="name">Patient</field>
             <field name="res_model">hospital.patient</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="action_hospital_patient_tree_view"/>
             <field name="help" type="html">
                 <p class="o_view_noconten_smiling_face">
                         Create a new patient

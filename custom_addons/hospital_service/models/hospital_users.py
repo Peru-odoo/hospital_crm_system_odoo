@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from datetime import datetime
 
 
 class PersonAbstract(models.AbstractModel):
@@ -42,6 +43,18 @@ class Patient(models.Model):
     _inherit = 'hospital.abstractperson'
 
     birth_date = fields.Date(string='Date of birth')
-    age = fields.Integer(string='Age')
+    age = fields.Integer(string='Age',  compute='_compute_age', store=True)
     passport_data = fields.Char(string='Passport data')
     contact_person = fields.Many2one('hospital.contactperson', string='Contact person')
+
+    @api.depends('birth_date')
+    def _compute_age(self):
+        for patient in self:
+            if patient.birth_date:
+                birth_date_str = patient.birth_date.strftime("%Y-%m-%d")
+                birth_date = datetime.strptime(birth_date_str, "%Y-%m-%d").date()
+                today = datetime.now().date()
+                age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+                patient.age = age
+            else:
+                patient.age = 0
