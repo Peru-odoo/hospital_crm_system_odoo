@@ -6,5 +6,4 @@ from . import hospital_sample_type
 from . import hospital_doctor_schedule
 from . import hospital_doctor_visit
 from . import hospital_research
-
-
+from . import hospital_diagnosis

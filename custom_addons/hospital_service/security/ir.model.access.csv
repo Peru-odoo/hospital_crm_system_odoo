@@ -20,3 +20,6 @@ hospital_service.access_hospital_doctor_visit,access_hospital_doctor_visit,hospi
 
 hospital_service.access_hospital_research,access_hospital_research,hospital_service.model_hospital_research,base.group_user,1,1,1,1
 
+hospital_service.access_hospital_diagnosis,access_hospital_diagnosis,hospital_service.model_hospital_diagnosis,base.group_user,1,1,1,1
+
+
