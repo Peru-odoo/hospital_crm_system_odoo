@@ -33,6 +33,8 @@ class Doctor(models.Model):
 
     specialty = fields.Char(string='Speciality')
     is_intern = fields.Boolean(string='Intern')
+    appointments = fields.One2many('hospital.doctor_schedule', 'doctor', string='Appointments')
+
 
 
 class Patient(models.Model):

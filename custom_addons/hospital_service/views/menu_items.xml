@@ -13,9 +13,10 @@
             <menuitem id="menu_hospital_directory_disease" name="Directory diseases" action="hospital_service.action_hospital_disease_tree"/>
             <menuitem id="menu_hospital_research_type" name="Research type" action="hospital_service.action_hospital_research_type"/>
             <menuitem id="menu_hospital_sample_type" name="Sample type" action="hospital_service.action_hospital_sample_type"/>
-        </menuitem>
-        <menuitem id="menu_hospital_constructor" name="Constructor">
             <menuitem id="menu_hospital_doctor_schedule" name="Doctor Schedule" action="hospital_service.action_hospital_doctor_schedule"/>
         </menuitem>
+<!--        <menuitem id="menu_hospital_constructor" name="Constructor">-->
+<!--            <menuitem id="menu_hospital_doctor_schedule" name="Doctor Schedule" action="hospital_service.action_hospital_doctor_schedule"/>-->
+<!--        </menuitem>-->
     </menuitem>
 </odoo>
