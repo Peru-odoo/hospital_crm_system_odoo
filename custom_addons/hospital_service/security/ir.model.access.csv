@@ -12,5 +12,8 @@ hospital_service.access_hospital_disease,access_hospital_disease,hospital_servic
 
 hospital_service.access_hospital_research,access_hospital_research,hospital_service.model_hospital_research,base.group_user,1,1,1,1
 
+hospital_service.access_hospital_sample,access_hospital_sample,hospital_service.model_hospital_sample,base.group_user,1,1,1,1
+
+
 
 

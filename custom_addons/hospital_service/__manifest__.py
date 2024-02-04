@@ -13,6 +13,7 @@
         "views/hospital_patient_view.xml",
         "views/hospital_directory_diseases_view.xml",
         "views/hospital_research_type_view.xml",
+        "views/hospital_sample_type_view.xml",
         "views/menu_items.xml",
     ],
     "installable": True,
