@@ -10,3 +10,5 @@ class Diagnosis(models.Model):
     disease = fields.Many2one('hospital.disease', string='Disease', required=True)
     treatment = fields.Text(string='Treatment')
     diagnosis_date = fields.Date(string='Diagnosis Date', default=fields.Date.today())
+    research_ids = fields.Many2many('hospital.research', string='Related Research', copy=False)
+

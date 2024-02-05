@@ -24,6 +24,7 @@
                             <field name="disease"/>
                             <field name="treatment"/>
                             <field name="diagnosis_date"/>
+                            <field name="research_ids"/>
                         </group>
                     </sheet>
                 </form>
