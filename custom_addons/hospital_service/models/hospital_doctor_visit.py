@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class DoctorVisit(models.Model):
@@ -12,4 +12,3 @@ class DoctorVisit(models.Model):
     diagnosis_id = fields.Many2one('hospital.diagnosis', string='Diagnosis')
     recommendations = fields.Text(string='Recommendations')
     is_completed = fields.Boolean(string='Visit Completed', default=False)
-

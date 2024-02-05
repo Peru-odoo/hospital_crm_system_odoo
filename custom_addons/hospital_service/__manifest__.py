@@ -4,7 +4,7 @@
     "version": "1.0",
     "author": "Kostiantyn Kononenko",
     "category": "Human Resources",
-    "depends": [],
+    "depends": ['base', 'hr', 'calendar'],
     "data": [
         "security/ir.model.access.csv",
         "views/hospital_service_view.xml",

@@ -1,44 +1,32 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="view_hospital_doctor_schedule_tree" model="ir.ui.view">
-            <field name="name">hospital.doctor_schedule.tree</field>
-            <field name="model">hospital.doctor_schedule</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="doctor"/>
-                    <field name="date"/>
-                    <field name="start_time"/>
-                    <field name="end_time"/>
-                </tree>
-            </field>
-        </record>
-        <record id="view_hospital_doctor_schedule_form" model="ir.ui.view">
-            <field name="name">hospital.doctor_schedule.form</field>
-            <field name="model">hospital.doctor_schedule</field>
+        <!-- View -->
+        <record id="view_doctor_availability_form" model="ir.ui.view">
+            <field name="name">hospital.availability.form</field>
+            <field name="model">hospital.schedule</field>
             <field name="arch" type="xml">
                 <form>
-                    <sheet>
-                        <group>
-                            <field name="doctor"/>
-                            <field name="date"/>
-                            <field name="start_time"/>
-                            <field name="end_time"/>
-                        </group>
-                    </sheet>
+                    <group>
+                        <field name="doctor_id"/>
+                        <field name="appointment_date"/>
+                        <field name="time_slots">
+                            <tree editable="bottom">
+                                <field name="schedule_id" invisible="1" column_invisible="1"/>
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </group>
                 </form>
             </field>
         </record>
-        <record id="action_hospital_doctor_schedule" model="ir.actions.act_window">
-            <field name="name">Doctor schedule</field>
-            <field name="res_model">hospital.doctor_schedule</field>
+
+        <!-- Action -->
+        <record id="action_doctor_schedule" model="ir.actions.act_window">
+            <field name="name">Doctor Availability</field>
+            <field name="res_model">hospital.schedule</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_hospital_doctor_schedule_tree"/>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">
-                    Create a new doctor appointment
-                </p>
-            </field>
         </record>
     </data>
 </odoo>
