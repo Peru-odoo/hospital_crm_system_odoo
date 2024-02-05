@@ -11,4 +11,6 @@ class Diagnosis(models.Model):
     treatment = fields.Text(string='Treatment')
     diagnosis_date = fields.Date(string='Diagnosis Date', default=fields.Date.today())
     research_ids = fields.Many2many('hospital.research', string='Related Research', copy=False)
+    visit_ids = fields.One2many('hospital.doctor_visit', 'diagnosis_id', string='Related Visits')
+
 

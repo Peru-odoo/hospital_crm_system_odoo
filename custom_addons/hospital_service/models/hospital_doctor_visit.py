@@ -11,7 +11,8 @@ class DoctorVisit(models.Model):
     appointment_time = fields.Float(string='Doctor Appointment Time', required=True)
     recommendations = fields.Text(string='Recommendations')
     is_completed = fields.Boolean(string='Visit Completed', default=False)
-    research_ids = fields.Many2many('hospital.research', string='Related Research', copy=False)
+    research_ids = fields.Many2many('hospital.research', string='Research', copy=False)
+    diagnosis_id = fields.Many2one('hospital.diagnosis', string='Diagnosis')
 
     @api.onchange('doctor', 'appointment_date')
     def _onchange_doctor(self):
