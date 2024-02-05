@@ -1,6 +1,4 @@
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
-from datetime import datetime, timedelta
 
 
 class DoctorVisit(models.Model):
@@ -11,9 +9,9 @@ class DoctorVisit(models.Model):
     patient = fields.Many2one('hospital.patient', string='Patient', required=True)
     appointment_date = fields.Many2one('hospital.doctor_schedule', string='Doctor Appointment Date', required=True)
     appointment_time = fields.Float(string='Doctor Appointment Time', required=True)
-
     recommendations = fields.Text(string='Recommendations')
     is_completed = fields.Boolean(string='Visit Completed', default=False)
+    research_ids = fields.Many2many('hospital.research', string='Related Research', copy=False)
 
     @api.onchange('doctor', 'appointment_date')
     def _onchange_doctor(self):

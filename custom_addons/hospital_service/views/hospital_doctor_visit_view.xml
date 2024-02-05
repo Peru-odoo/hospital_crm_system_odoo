@@ -22,8 +22,9 @@
                             <field name="patient"/>
                             <field name="appointment_date"/>
                             <field name="appointment_time"/>
-
-
+                            <field name="recommendations"/>
+                            <field name="is_completed"/>
+                            <field name="research_ids"/>
                         </group>
                     </sheet>
                 </form>
