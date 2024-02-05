@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Diagnosis(models.Model):
@@ -13,4 +14,20 @@ class Diagnosis(models.Model):
     research_ids = fields.Many2many('hospital.research', string='Related Research', copy=False)
     visit_ids = fields.One2many('hospital.doctor_visit', 'diagnosis_id', string='Related Visits')
 
+    mentor_comment = fields.Text(string='Mentor Comment')
 
+    @api.onchange('doctor')
+    def _onchange_doctor(self):
+        if self.doctor.is_intern:
+            raise ValidationError("Interns cannot be mentors.")
+
+    @api.onchange('is_intern')
+    def _onchange_is_intern(self):
+        if self.is_intern and self.mentor_id:
+            self.mentor_id = False
+
+    @api.constrains('mentor_comment', 'doctor', 'is_intern')
+    def _check_mentor_comment(self):
+        for record in self:
+            if record.is_intern and not record.mentor_comment:
+                raise ValidationError("Mentor Comment is required for intern diagnoses.")
