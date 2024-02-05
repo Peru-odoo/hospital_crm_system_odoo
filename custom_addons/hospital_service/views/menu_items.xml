@@ -19,6 +19,7 @@
             <menuitem id="menu_hospital_doctor_visit" name="Doctor Visit" action="hospital_service.action_hospital_doctor_visit"/>
             <menuitem id="menu_hospital_research" name="Research" action="hospital_service.action_hospital_research"/>
             <menuitem id="menu_hospital_diagnosis" name="Diagnosis" action="hospital_service.action_hospital_diagnosis"/>
+            <menuitem id="menu_hospital_personal_doctor_history" name="Personal Doctor History" action="hospital_service.action_hospital_personal_doctor_history"/>
         </menuitem>
     </menuitem>
 </odoo>

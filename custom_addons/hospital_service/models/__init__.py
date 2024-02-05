@@ -7,3 +7,5 @@ from . import hospital_doctor_schedule
 from . import hospital_doctor_visit
 from . import hospital_research
 from . import hospital_diagnosis
+from . import hospital_personal_doctor_history
+
