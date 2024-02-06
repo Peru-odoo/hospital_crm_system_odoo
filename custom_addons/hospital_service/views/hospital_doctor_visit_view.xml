@@ -21,6 +21,7 @@
                             <field name="doctor"/>
                             <field name="patient"/>
                             <field name="appointment_date"/>
+                            <field name="time_slot"/>
                             <field name="research_ids"/>
                             <field name="diagnosis_id"/>
                             <field name="recommendations"/>

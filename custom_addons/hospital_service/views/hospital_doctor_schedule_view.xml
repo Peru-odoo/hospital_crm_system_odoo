@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- View -->
+        <record id="action_hospital_availability_tree_view" model="ir.ui.view">
+            <field name="name">hospital.schedule.tree</field>
+            <field name="model">hospital.schedule</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="doctor_id"/>
+                    <field name="appointment_date"/>
+                </tree>
+            </field>
+         </record>
         <record id="view_doctor_availability_form" model="ir.ui.view">
-            <field name="name">hospital.availability.form</field>
+            <field name="name">hospital.schedule.form</field>
             <field name="model">hospital.schedule</field>
             <field name="arch" type="xml">
                 <form>
@@ -21,8 +30,6 @@
                 </form>
             </field>
         </record>
-
-        <!-- Action -->
         <record id="action_doctor_schedule" model="ir.actions.act_window">
             <field name="name">Doctor Availability</field>
             <field name="res_model">hospital.schedule</field>
