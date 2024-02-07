@@ -11,8 +11,8 @@ class Diagnosis(models.Model):
     disease = fields.Many2one('hospital.disease', string='Disease', required=True)
     treatment = fields.Text(string='Treatment')
     diagnosis_date = fields.Date(string='Diagnosis Date', default=fields.Date.today())
-    research_ids = fields.Many2many('hospital.research', string='Related Research', copy=False)
-    visit_ids = fields.One2many('hospital.doctor_visit', 'diagnosis_id', string='Related Visits')
+    research_ids = fields.Many2many('hospital.research', string='Research', copy=False)
+    visit_ids = fields.One2many('hospital.doctor_visit', 'diagnosis_id', string='Visits')
 
     mentor_comment = fields.Text(string='Mentor Comment')
 
@@ -26,8 +26,8 @@ class Diagnosis(models.Model):
         if self.is_intern and self.mentor_id:
             self.mentor_id = False
 
-    @api.constrains('mentor_comment', 'doctor', 'is_intern')
+    @api.constrains('mentor_comment', 'doctor', 'doctor.is_intern')
     def _check_mentor_comment(self):
         for record in self:
-            if record.is_intern and not record.mentor_comment:
+            if record.doctor.is_intern and not record.mentor_comment:
                 raise ValidationError("Mentor Comment is required for intern diagnoses.")

@@ -25,6 +25,9 @@
                             <field name="treatment"/>
                             <field name="diagnosis_date"/>
                             <field name="research_ids"/>
+                            <field name="visit_ids"/>
+                            <field name="mentor_comment"/>
+
                         </group>
                     </sheet>
                 </form>

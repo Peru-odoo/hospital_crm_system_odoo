@@ -20,6 +20,15 @@
         "views/hospital_diagnosis_view.xml",
         "views/hospital_personal_doctor_history_view.xml",
         "views/menu_items.xml",
+
+        # Data files
+        "data/hospital.doctor.csv",
+        "data/hospital.contactperson.csv",
+        "data/hospital.patient.csv",
+        "data/hospital.disease.csv",
+        "data/hospital.research_type.csv",
+        "data/hospital.sample_type.csv",
+
     ],
     "installable": True,
     "application": True,

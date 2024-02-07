@@ -1,0 +1,8 @@
+"id","name","phone","email","gender","passport_data"
+hospital_patient_Garik,"Garik Bircha", +38098111111, Garik@gmail.com,"Male","AA111111"
+hospital_patient_Nataliia,"Nataliia Denysenko", +38098222222, Nataliia@gmail.com,"Femail","BB222222"
+hospital_patient_Volodymyr,"Volodymyr Rashchuk", +38098333333, Volodymyr@gmail.com,"Male","CC333333"
+hospital_patient_Vyacheslav,"Vyacheslav Nikonorov", +38098444444, Vyacheslav@gmail.com,"Male","DD444444"
+hospital_patient_Kseniia,"Kseniia Vertynska", +38098555555, Kseniia@gmail.com,"Femail","EE555555"
+
+

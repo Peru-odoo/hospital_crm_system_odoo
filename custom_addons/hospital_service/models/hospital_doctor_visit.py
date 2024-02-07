@@ -15,6 +15,6 @@ class DoctorVisit(models.Model):
     patient = fields.Many2one('hospital.patient', string='Patient', required=True)
     appointment_date = fields.Date(string='Appointment Date', required=True)
     research_ids = fields.Many2many('hospital.research', string='Research', copy=False)
-    diagnosis_id = fields.Many2one('hospital.diagnosis', string='Diagnosis')
+    diagnosis_id = fields.Many2many('hospital.diagnosis', string='Diagnosis')
     recommendations = fields.Text(string='Recommendations')
     is_completed = fields.Boolean(string='Visit Completed', default=False)

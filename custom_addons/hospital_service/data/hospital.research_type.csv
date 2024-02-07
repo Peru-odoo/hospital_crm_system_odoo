@@ -1,0 +1,7 @@
+"id","name","code","description"
+hospital_disease_Radiography,"Radiography","RRRRRR","Radiography (from Roentgen (the name of the scientist who discovered this type of electromagnetic waves) + Greek gráphō, I write) is the study of the internal structure of objects that are projected using X-rays onto a special film or paper."
+hospital_disease_Ultrasonography,"Ultrasonography","UUUUUU","Non-invasive examination of the human or animal body using ultrasonic waves."
+hospital_disease_Electrocardiography,"Electrocardiography","EEEEEE","A technique for recording and studying electric fields generated during the work of the heart. Electrocardiography is a relatively inexpensive but valuable method of electrophysiological instrumental diagnostics in cardiology"
+hospital_disease_Echocardiography,"Echocardiography","CCCCCC","An ultrasound method aimed at studying the morphological and functional changes of the heart and its valve apparatus. It is based on capturing ultrasound signals reflected from the structures of the heart."
+hospital_disease_Endoscopy,"Endoscopy", "DDDDDDD","A method of examining the cavities of the human body using an endoscope. During endoscopy, endoscopes are inserted into cavities through natural routes, for example, into the stomach - through the mouth and esophagus, into the bronchi - through the larynx, into the bladder - through the urethra, as well as through punctures or surgical approaches."
+

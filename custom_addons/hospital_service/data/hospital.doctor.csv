@@ -1,0 +1,6 @@
+"id","name","phone","email","gender","specialty","is_intern"
+hospital_doctor_Gregor,"Gregor Polynskiy", +38095111111, Gregor@gmail.com,"Male","Surgeon","False"
+hospital_doctor_Stepan,"Stepan Bandera", +38095222222, Stepan@gmail.com,"Male","Therapist","True"
+hospital_doctor_Ivan,"Ivan Kotliarevsky", +38095444444, Ivan@gmail.com,"Male","Сardiologist","False"
+hospital_doctor_Serhii,"Serhii Dziuba", +38095555555, Serhii@gmail.com,"Male","Resuscitator","False"
+hospital_doctor_Yuri,"Yuri Andrukhovych", +38095666666, Yuri@gmail.com,"Male","Psychiatrist","False"
