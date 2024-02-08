@@ -8,6 +8,8 @@
                 <tree>
                     <field name="doctor"/>
                     <field name="patient"/>
+                    <field name="appointment_date"/>
+                    <field name="time_slot"/>
                 </tree>
             </field>
          </record>
@@ -16,6 +18,10 @@
             <field name="model">hospital.doctor_visit</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button string="Finish Research" type="object" name="action_finish_research" class="btn btn-primary" invisible ="state != 'add_research'"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="doctor"/>
@@ -27,17 +33,21 @@
                         <notebook>
                             <page string="Research">
                                 <field name="research_ids">
-                                    <tree editable="bottom">
-                                        <field name="doctor"/>
+                                    <tree editable="bottom" decoration-success="status == 'accepted'" decoration-danger="status == 're-research'" >
+                                        <field name="doctor" invisible="1" column_invisible="1"/>
+                                        <field name="patient" invisible="1" column_invisible="1"/>
                                         <field name="research_type"/>
                                         <field name="sample_type"/>
-                                        <field name="conclusions"/>
+                                        <field name="conclusions" widget="text"/>
+                                        <field name="status"/>
+                                        <button name="action_accept_research" type="object" icon="fa-check" string="Accept" invisible="status in ['accepted']"/>
+                                        <button name="action_decline_research" type="object" icon="fa-times" string="Re-research" invisible="status in ['accepted']"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Diagnosis">
                                 <field name="diagnosis_id">
-                                    <tree editable="bottom">
+                                    <tree>
                                         <field name="doctor"/>
                                         <field name="disease"/>
                                         <field name="treatment"/>
