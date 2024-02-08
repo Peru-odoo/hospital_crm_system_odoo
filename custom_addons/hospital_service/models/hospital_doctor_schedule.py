@@ -42,7 +42,6 @@ class DoctorAvailabilitySlot(models.Model):
                 ('schedule_id.appointment_date', '=', slot.schedule_id.appointment_date),
                 ('id', '!=', slot.id),
             ])
-
             for existing_slot in same_day_slots:
                 if (slot.start_time < existing_slot.end_time and
                         slot.end_time > existing_slot.start_time):

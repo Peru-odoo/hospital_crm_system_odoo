@@ -26,10 +26,10 @@
                     </header>
                     <sheet>
                         <group>
-                            <field name="doctor" readonly="state != 'new'"/>
-                            <field name="patient" readonly="state != 'new'"/>
-                            <field name="appointment_date" readonly="state != 'new'"/>
-                            <field name="time_slot" widget="select" readonly="state != 'new'"/>
+                            <field name="doctor" readonly="state != 'create'"/>
+                            <field name="patient" readonly="state != 'create'"/>
+                            <field name="appointment_date" readonly="state != 'create'"/>
+                            <field name="time_slot" widget="select" readonly="state != 'create'"/>
                             <field name="is_completed"/>
                         </group>
                         <notebook>
@@ -48,14 +48,14 @@
                                 </field>
                             </page>
                             <page string="Diagnosis">
-                                <field name="diagnosis_id">
-                                    <tree>
-                                        <field name="doctor"/>
+                                <field name="diagnosis_ids">
+                                    <tree editable="bottom">
+                                        <field name="doctor" invisible="1" column_invisible="1"/>
+                                        <field name="patient" invisible="1" column_invisible="1"/>
                                         <field name="disease"/>
                                         <field name="treatment"/>
                                         <field name="diagnosis_date"/>
                                         <field name="research_ids"/>
-                                        <field name="visit_ids"/>
                                         <field name="mentor_comment"/>
                                     </tree>
                                 </field>
