@@ -20,14 +20,16 @@
                 <form>
                     <header>
                         <button string="Finish Research" type="object" name="action_finish_research" class="btn btn-primary" invisible ="state != 'add_research'"/>
+                        <button string="Skip Research" type="object" name="action_skip_research" class="btn btn-danger" invisible ="state != 'new'"/>
+
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
                         <group>
-                            <field name="doctor"/>
-                            <field name="patient"/>
-                            <field name="appointment_date"/>
-                            <field name="time_slot"/>
+                            <field name="doctor" readonly="state != 'new'"/>
+                            <field name="patient" readonly="state != 'new'"/>
+                            <field name="appointment_date" readonly="state != 'new'"/>
+                            <field name="time_slot" widget="select" readonly="state != 'new'"/>
                             <field name="is_completed"/>
                         </group>
                         <notebook>
@@ -36,10 +38,10 @@
                                     <tree editable="bottom" decoration-success="status == 'accepted'" decoration-danger="status == 're-research'" >
                                         <field name="doctor" invisible="1" column_invisible="1"/>
                                         <field name="patient" invisible="1" column_invisible="1"/>
-                                        <field name="research_type"/>
-                                        <field name="sample_type"/>
-                                        <field name="conclusions" widget="text"/>
-                                        <field name="status"/>
+                                        <field name="research_type" readonly="status in ['accepted'],"/>
+                                        <field name="sample_type" readonly="status in ['accepted'],"/>
+                                        <field name="conclusions" widget="text" readonly="status in ['accepted'],"/>
+                                        <field name="status" readonly="1"/>
                                         <button name="action_accept_research" type="object" icon="fa-check" string="Accept" invisible="status in ['accepted']"/>
                                         <button name="action_decline_research" type="object" icon="fa-times" string="Re-research" invisible="status in ['accepted']"/>
                                     </tree>

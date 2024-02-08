@@ -10,7 +10,7 @@ class DoctorVisit(models.Model):
         'hospital.schedule.line',
         string='Available Time',
         domain="[('schedule_id.appointment_date', '=', appointment_date)]",
-        help='Select Time Slot',
+        required=True
     )
 
     state = fields.Selection(
@@ -40,6 +40,9 @@ class DoctorVisit(models.Model):
             self.state = 'confirm_research'
         else:
             raise UserError("Not all research are in 'accepted' status.")
+
+    def action_skip_research(self):
+        self.state = 'confirm_research'
 
     @api.model
     def check_access_create(self):
