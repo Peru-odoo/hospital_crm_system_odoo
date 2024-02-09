@@ -32,7 +32,6 @@
                             <field name="patient" readonly="state != 'create'"/>
                             <field name="appointment_date" readonly="state != 'create'"/>
                             <field name="time_slot" widget="select" readonly="state != 'create'"/>
-                            <field name="is_completed"/>
                         </group>
                         <notebook>
                             <page string="Research">
@@ -60,16 +59,16 @@
                                         <field name="research_ids" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="mentor_comment" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="status_diagnosis" readonly="1"/>
-                                        <button name="action_accept_diagnosis" type="object" icon="fa-check" string="Accept" invisible="status_diagnosis in ['accept_diagnosis']"/>
-                                        <button name="action_reconsider_diagnosis" type="object" icon="fa-times" string="Reconsider" invisible="status_diagnosis in ['accept_diagnosis']"/>
+                                        <button name="action_accept_diagnosis" type="object" icon="fa-check" string="Accept" invisible="status_diagnosis == 'accepted_diagnosis'"/>
+                                        <button name="action_reconsider_diagnosis" type="object" icon="fa-times" string="Reconsider" invisible="status_diagnosis == 'accepted_diagnosis'"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Recommendations">
                                 <group>
                                     <tree>
-                                        <field name="recommendations"/>
-                                        <button name="action_accept_recommendations" type="object" icon="fa-check" string="Accept"/>
+                                        <field name="recommendations" readonly="state not in ('make_recommendations', 'confirm_diagnosis')"/>
+                                        <button name="action_accept_recommendations" type="object" string="Accept" invisible="state not in ('make_recommendations')"/>
                                     </tree>
                                 </group>
                             </page>

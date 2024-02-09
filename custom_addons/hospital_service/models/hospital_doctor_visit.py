@@ -30,7 +30,6 @@ class DoctorVisit(models.Model):
         required=True
     )
     recommendations = fields.Text(string='Recommendations')
-    is_completed = fields.Boolean(string='Visit Completed', default=False)
     research_ids = fields.One2many('hospital.research', 'doctor_visit', string='Research')
     diagnosis_ids = fields.One2many('hospital.diagnosis', 'doctor_visit', string='Diagnosis')
 

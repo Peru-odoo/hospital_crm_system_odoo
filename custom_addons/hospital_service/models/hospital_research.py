@@ -24,8 +24,6 @@ class Research(models.Model):
 
     @api.model
     def create(self, values):
-        if values.get('state') == 'confirm_research':
-            raise UserError("Cannot create a new record with status confirm_research.")
         research_record = super(Research, self).create(values)
         if research_record:
             doctor_visit = research_record.doctor_visit
@@ -33,9 +31,14 @@ class Research(models.Model):
                 doctor_visit.write({'state': 'add_research'})
         if research_record:
             doctor_visit = research_record.doctor_visit
-            if doctor_visit and doctor_visit.state == 'confirm_research':
+            if doctor_visit and doctor_visit.state in (
+                    'confirm_research',
+                    'make_diagnosis',
+                    'confirm_diagnosis',
+                    'make_recommendations',
+                    'completed'):
                 raise UserError(
-                    "Cannot create a new research when DoctorVisit is in confirm_research state.")
+                    "Cannot create a new research when Doctor is in confirm all research.")
         return research_record
 
     @api.model

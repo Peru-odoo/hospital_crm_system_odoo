@@ -26,8 +26,6 @@ class Diagnosis(models.Model):
 
     @api.model
     def create(self, values):
-        if values.get('state') == 'confirm_diagnosis':
-            raise UserError("Cannot create a new record with status confirm_research.")
         diagnosis_record = super(Diagnosis, self).create(values)
         if diagnosis_record:
             doctor_visit = diagnosis_record.doctor_visit
@@ -35,9 +33,13 @@ class Diagnosis(models.Model):
                 doctor_visit.write({'state': 'make_diagnosis'})
         if diagnosis_record:
             doctor_visit = diagnosis_record.doctor_visit
-            if doctor_visit and doctor_visit.state == 'confirm_diagnosis':
+            if doctor_visit and doctor_visit.state in (
+                    'confirm_research',
+                    'confirm_diagnosis',
+                    'make_recommendations',
+                    'completed'):
                 raise UserError(
-                    "Cannot create a new diagnosis when all diagnosis are confirmed.")
+                    "Cannot create a new research when Doctor is in confirm all diagnosis.")
         return diagnosis_record
 
     def action_accept_diagnosis(self):
