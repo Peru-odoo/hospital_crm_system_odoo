@@ -15,7 +15,6 @@ class DoctorVisit(models.Model):
             ('make_diagnosis', 'Make diagnosis'),
             ('confirm_diagnosis', 'Confirm diagnosis'),
             ('make_recommendations', 'Make recommendations'),
-            ('confirm_recommendations', 'Confirm recommendations'),
             ('completed', 'Visit Completed')
         ],
         default='create',
@@ -53,10 +52,8 @@ class DoctorVisit(models.Model):
     def action_skip_diagnosis(self):
         self.state = 'confirm_diagnosis'
 
-    # @api.model
-    # def check_access_create(self):
-    #     if self.state == 'confirm_research':
-    #         raise UserError("Cannot add new research to a completed visit.")
+    def action_accept_recommendations(self):
+        self.state = 'completed'
 
     @api.model
     def create(self, values):
@@ -70,3 +67,8 @@ class DoctorVisit(models.Model):
             if record.state != 'new':
                 raise UserError("Cannot delete a record with status other than 'new'.")
         return super(DoctorVisit, self).unlink()
+
+    def write(self, values):
+        if 'recommendations' in values:
+            self.state = 'make_recommendations'
+        return super(DoctorVisit, self).write(values)

@@ -60,14 +60,17 @@
                                         <field name="research_ids" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="mentor_comment" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="status_diagnosis" readonly="1"/>
-                                         <button name="action_accept_diagnosis" type="object" icon="fa-check" string="Accept"/>
-                                        <button name="action_reconsider_diagnosis" type="object" icon="fa-times" string="Reconsider"/>
+                                        <button name="action_accept_diagnosis" type="object" icon="fa-check" string="Accept" invisible="status_diagnosis in ['accept_diagnosis']"/>
+                                        <button name="action_reconsider_diagnosis" type="object" icon="fa-times" string="Reconsider" invisible="status_diagnosis in ['accept_diagnosis']"/>
                                     </tree>
                                 </field>
                             </page>
                             <page string="Recommendations">
                                 <group>
-                                    <field name="recommendations"/>
+                                    <tree>
+                                        <field name="recommendations"/>
+                                        <button name="action_accept_recommendations" type="object" icon="fa-check" string="Accept"/>
+                                    </tree>
                                 </group>
                             </page>
                         </notebook>
