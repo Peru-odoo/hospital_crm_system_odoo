@@ -6,6 +6,7 @@ class Research(models.Model):
     _name = 'hospital.research'
     _description = 'Research'
 
+    name = fields.Char(string='Name', required=True)
     patient = fields.Many2one('hospital.patient', string='Patient', required=True)
     doctor = fields.Many2one('hospital.doctor', string='Doctor', required=True)
     research_type = fields.Many2one('hospital.research_type', string='Research Type')
@@ -15,6 +16,12 @@ class Research(models.Model):
                                ('re-research', 'Re-research')],
                               string='Status Research')
     doctor_visit = fields.Many2one('hospital.doctor_visit', string='Doctor Visit')
+
+    def name_get(self):
+        result = []
+        for record in self:
+            result.append((record.id, record.name))
+        return result
 
     @api.onchange('doctor_visit')
     def _onchange_doctor_visit(self):

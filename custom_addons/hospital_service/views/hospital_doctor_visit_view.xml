@@ -39,6 +39,7 @@
                                     <tree editable="bottom" decoration-success="status_research == 'accepted_research'" decoration-danger="status_research == 're-research'">
                                         <field name="doctor" invisible="1" column_invisible="1"/>
                                         <field name="patient" invisible="1" column_invisible="1"/>
+                                        <field name="name" readonly="status_research in ['accepted_research'],"/>
                                         <field name="research_type" readonly="status_research in ['accepted_research'],"/>
                                         <field name="sample_type" readonly="status_research in ['accepted_research'],"/>
                                         <field name="conclusions" widget="text" readonly="status_research in ['accepted_research'],"/>
@@ -56,7 +57,7 @@
                                         <field name="disease" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="treatment" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="diagnosis_date" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
-                                        <field name="research_ids" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
+                                        <field name="research_ids" widget="many2many_tags" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="mentor_comment" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="status_diagnosis" readonly="1"/>
                                         <button name="action_accept_diagnosis" type="object" icon="fa-check" string="Accept" invisible="status_diagnosis == 'accepted_diagnosis'"/>

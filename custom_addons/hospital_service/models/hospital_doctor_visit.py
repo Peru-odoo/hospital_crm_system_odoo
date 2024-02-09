@@ -36,14 +36,9 @@ class DoctorVisit(models.Model):
     @api.onchange('time_slot')
     def _onchange_time_slot(self):
         if self.time_slot:
-            # Отримати попередній обраний слот
             previous_slot = self._origin.time_slot if self._origin else False
-
-            # Оновити значення is_slot_occupied для попереднього слота
             if previous_slot:
                 previous_slot.is_slot_occupied = False
-
-            # Встановити is_slot_occupied для нового обраного слота
             self.time_slot.is_slot_occupied = True
 
     def action_finish_research(self):
