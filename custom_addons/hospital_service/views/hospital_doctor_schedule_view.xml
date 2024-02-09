@@ -24,6 +24,7 @@
                                 <field name="schedule_id" invisible="1" column_invisible="1"/>
                                 <field name="start_time"/>
                                 <field name="end_time"/>
+                                <field name="is_slot_occupied"/>
                             </tree>
                         </field>
                     </group>

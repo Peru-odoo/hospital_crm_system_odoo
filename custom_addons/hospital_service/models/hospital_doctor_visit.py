@@ -26,12 +26,25 @@ class DoctorVisit(models.Model):
     time_slot = fields.Many2one(
         'hospital.schedule.line',
         string='Available Time',
-        domain="[('schedule_id.appointment_date', '=', appointment_date)]",
+        domain="[('schedule_id.appointment_date', '=', appointment_date), ('is_slot_occupied', '=', False), ('doctor', '=', doctor)]",
         required=True
     )
     recommendations = fields.Text(string='Recommendations')
     research_ids = fields.One2many('hospital.research', 'doctor_visit', string='Research')
     diagnosis_ids = fields.One2many('hospital.diagnosis', 'doctor_visit', string='Diagnosis')
+
+    @api.onchange('time_slot')
+    def _onchange_time_slot(self):
+        if self.time_slot:
+            # Отримати попередній обраний слот
+            previous_slot = self._origin.time_slot if self._origin else False
+
+            # Оновити значення is_slot_occupied для попереднього слота
+            if previous_slot:
+                previous_slot.is_slot_occupied = False
+
+            # Встановити is_slot_occupied для нового обраного слота
+            self.time_slot.is_slot_occupied = True
 
     def action_finish_research(self):
         if all(research.status_research == 'accepted_research' for research in self.research_ids):

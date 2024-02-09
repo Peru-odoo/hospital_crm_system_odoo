@@ -18,6 +18,8 @@ class DoctorAvailabilitySlot(models.Model):
     schedule_id = fields.Many2one('hospital.schedule', string='Availability', ondelete='cascade')
     start_time = fields.Float(string='Start Time', required=True)
     end_time = fields.Float(string='End Time', required=True)
+    is_slot_occupied = fields.Boolean(string='Occupied Slot', default=False)
+    doctor = fields.Many2one('hospital.doctor', string='Doctor', related='schedule_id.doctor_id')
 
     @api.depends('start_time', 'end_time')
     def _compute_name(self):
