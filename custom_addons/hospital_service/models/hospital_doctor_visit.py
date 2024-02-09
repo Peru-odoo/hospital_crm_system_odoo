@@ -36,7 +36,7 @@ class DoctorVisit(models.Model):
     diagnosis_ids = fields.One2many('hospital.diagnosis', 'doctor_visit', string='Diagnosis')
 
     def action_finish_research(self):
-        if all(research.status == 'accepted' for research in self.research_ids):
+        if all(research.status_research == 'accepted_research' for research in self.research_ids):
             self.state = 'confirm_research'
         else:
             raise UserError("Not all research are in 'accepted' status.")
@@ -44,10 +44,19 @@ class DoctorVisit(models.Model):
     def action_skip_research(self):
         self.state = 'confirm_research'
 
-    @api.model
-    def check_access_create(self):
-        if self.state == 'confirm_research':
-            raise UserError("Cannot add new research to a completed visit.")
+    def action_finish_diagnosis(self):
+        if all(diagnosis.status_diagnosis == 'accepted_diagnosis' for diagnosis in self.diagnosis_ids):
+            self.state = 'confirm_diagnosis'
+        else:
+            raise UserError("Not all diagnosis are in 'accepted' status.")
+
+    def action_skip_diagnosis(self):
+        self.state = 'confirm_diagnosis'
+
+    # @api.model
+    # def check_access_create(self):
+    #     if self.state == 'confirm_research':
+    #         raise UserError("Cannot add new research to a completed visit.")
 
     @api.model
     def create(self, values):

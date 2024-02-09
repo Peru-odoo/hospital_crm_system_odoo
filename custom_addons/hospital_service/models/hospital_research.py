@@ -11,9 +11,9 @@ class Research(models.Model):
     research_type = fields.Many2one('hospital.research_type', string='Research Type')
     sample_type = fields.Many2one('hospital.sample_type', string='Simple Type')
     conclusions = fields.Text(string='Conclusions')
-    status = fields.Selection([('accepted', 'Accepted'),
+    status_research = fields.Selection([('accepted_research', 'Accepted'),
                                ('re-research', 'Re-research')],
-                              string='Status')
+                              string='Status Research')
     doctor_visit = fields.Many2one('hospital.doctor_visit', string='Doctor Visit')
 
     @api.onchange('doctor_visit')
@@ -41,12 +41,12 @@ class Research(models.Model):
     @api.model
     def unlink(self):
         for research_record in self:
-            if research_record.status == 'accepted':
+            if research_record.status_research == 'accepted_research':
                 raise UserError("Cannot delete a research with status 'accepted'.")
         return super(Research, self).unlink()
 
     def action_accept_research(self):
-        self.status = 'accepted'
+        self.status_research = 'accepted_research'
 
     def action_decline_research(self):
-        self.status = 're-research'
+        self.status_research = 're-research'
