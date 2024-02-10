@@ -26,6 +26,7 @@ hospital_service.access_hospital_personal_doctor_history,access_hospital_persona
 
 hospital_service.access_hospital_schedule_line,access_hospital_schedule_line,hospital_service.model_hospital_schedule_line,base.group_user,1,1,1,1
 
+hospital_service.access_hospital_change_doctor_wizard,access_hospital_change_doctor_wizard,hospital_service.model_hospital_change_doctor_wizard,base.group_user,1,1,1,1
 
 
 

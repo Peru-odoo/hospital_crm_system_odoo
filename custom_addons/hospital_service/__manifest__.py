@@ -18,6 +18,7 @@
         "views/hospital_research_view.xml",
         "views/hospital_diagnosis_view.xml",
         "views/hospital_personal_doctor_history_view.xml",
+        'views/view_change_doctor_wizard_form.xml',
         "views/menu_items.xml",
 
         # Data files

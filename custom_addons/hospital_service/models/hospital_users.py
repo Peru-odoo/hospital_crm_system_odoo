@@ -80,3 +80,14 @@ class Patient(models.Model):
         if 'personal_doctor' in values:
             self._onchange_personal_doctor()
         return res
+
+    def change_personal_doctor(self):
+        return {
+            'name': 'Change Personal Doctor',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hospital.change_doctor_wizard',
+            'view_mode': 'form',
+            'view_id': self.env.ref('hospital_service.view_change_doctor_wizard_form').id,
+            'target': 'new',
+            'context': {'default_new_doctor': self.personal_doctor.id if self.personal_doctor else False},
+        }

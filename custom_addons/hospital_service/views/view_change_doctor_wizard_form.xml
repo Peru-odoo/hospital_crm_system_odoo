@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="view_change_doctor_wizard_form" model="ir.ui.view">
+            <field name="name">hospital.change_doctor_wizard.form</field>
+            <field name="model">hospital.change_doctor_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="new_doctor"/>
+                    </group>
+                    <footer>
+                        <button string="Change Doctor" type="object" class="oe_highlight" name="change_doctor" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
