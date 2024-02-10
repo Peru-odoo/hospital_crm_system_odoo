@@ -28,5 +28,6 @@ hospital_service.access_hospital_schedule_line,access_hospital_schedule_line,hos
 
 hospital_service.access_hospital_change_doctor_wizard,access_hospital_change_doctor_wizard,hospital_service.model_hospital_change_doctor_wizard,base.group_user,1,1,1,1
 
+hospital_service.access_hospital_report_wizard,access_hospital_report_wizard,hospital_service.model_hospital_report_wizard,base.group_user,1,1,1,1
 
 
