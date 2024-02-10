@@ -56,5 +56,5 @@ class Patient(models.Model):
             'view_mode': 'form',
             'view_id': self.env.ref('hospital_service.view_change_doctor_wizard_form').id,
             'target': 'new',
-            'context': {'default_new_doctor': self.personal_doctor.id if self.personal_doctor else False},
+            'context': {'default_new_doctor': self.personal_doctor and self.personal_doctor[0].id or False},
         }

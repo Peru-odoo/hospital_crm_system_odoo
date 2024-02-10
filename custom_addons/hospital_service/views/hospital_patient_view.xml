@@ -6,6 +6,9 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <tree>
+                    <header>
+                        <button string="Change Personal Doctor" type="object"  class="oe_highlight" name="change_personal_doctor"/>
+                    </header>
                     <field name="name"/>
                     <field name="phone"/>
                     <field name="email"/>
