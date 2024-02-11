@@ -8,6 +8,9 @@
                 <tree>
                     <field name="patient"/>
                     <field name="doctor"/>
+                    <field name="research_type"/>
+                    <field name="sample_type"/>
+                    <field name="conclusions"/>
                 </tree>
             </field>
          </record>

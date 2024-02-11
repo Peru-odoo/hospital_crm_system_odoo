@@ -5,6 +5,16 @@ class PersonalDoctorHistory(models.Model):
     _name = 'hospital.personal_doctor_history'
     _description = 'Personal Doctor History'
 
+    @api.depends('patient', 'doctor')
+    def _compute_name(self):
+        for rec in self:
+            if rec.patient.name and rec.doctor.name:
+                rec.name = f"{rec.patient.name} - {rec.doctor.name}"
+            else:
+                rec.name = False
+
+    name = fields.Char(string='Description', compute='_compute_name')
+
     patient = fields.Many2one('hospital.patient', string='Patient', required=True)
     doctor = fields.Many2one('hospital.doctor', string='Doctor', required=True)
     appointment_date = fields.Date(string='Appointment Date', default=fields.Date.today())

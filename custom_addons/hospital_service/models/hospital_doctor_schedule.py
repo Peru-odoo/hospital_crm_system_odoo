@@ -6,6 +6,15 @@ class DoctorSchedule(models.Model):
     _name = 'hospital.schedule'
     _description = 'Doctor Availability'
 
+    @api.depends('doctor_id')
+    def _compute_name(self):
+        for rec in self:
+            if rec.doctor_id.name:
+                rec.name = f"{rec.doctor_id.name}"
+            else:
+                rec.name = False
+
+    name = fields.Char(string='Description', compute='_compute_name')
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True)
     appointment_date = fields.Date(string='Appointment Date', required=True)
     time_slots = fields.One2many('hospital.schedule.line', 'schedule_id', string='Time Slots')

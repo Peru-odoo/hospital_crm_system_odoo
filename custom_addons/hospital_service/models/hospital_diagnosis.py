@@ -6,6 +6,15 @@ class Diagnosis(models.Model):
     _name = 'hospital.diagnosis'
     _description = 'Diagnosis'
 
+    @api.depends('patient', 'doctor')
+    def _compute_name(self):
+        for rec in self:
+            if rec.patient.name and rec.doctor.name and rec.diagnosis_date:
+                rec.name = f"{rec.patient.name} - {rec.doctor.name} - {rec.diagnosis_date}"
+            else:
+                rec.name = False
+
+    name = fields.Char(string='Description', compute='_compute_name')
     patient = fields.Many2one('hospital.patient', string='Patient', required=True)
     doctor = fields.Many2one('hospital.doctor', string='Doctor', required=True)
     disease = fields.Many2one('hospital.disease', string='Disease', required=True)

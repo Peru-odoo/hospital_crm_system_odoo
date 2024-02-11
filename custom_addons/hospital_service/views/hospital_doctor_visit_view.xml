@@ -21,9 +21,10 @@
                     <header>
                         <button string="Finish Research" type="object" name="action_finish_research" class="btn btn-primary" invisible ="state != 'add_research'"/>
                         <button string="Skip Research" type="object" name="action_skip_research" class="btn btn-danger" invisible ="state != 'new'"/>
-
                         <button string="Finish Diagnosis" type="object" name="action_finish_diagnosis" class="btn btn-primary" invisible ="state != 'make_diagnosis'"/>
                         <button string="Skip Diagnosis" type="object" name="action_skip_diagnosis" class="btn btn-danger" invisible ="state != 'confirm_research'"/>
+                        <button string="All patient diagnosis" type="object" name="action_show_patient_diagnoses" class="btn btn-warning" invisible ="state in ['create','new']"/>
+                        <button string="All patient research" type="object" name="action_show_patient_researches" class="btn-success" invisible ="state in ['create','new']"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
@@ -67,10 +68,8 @@
                             </page>
                             <page string="Recommendations">
                                 <group>
-                                    <tree>
                                         <field name="recommendations" readonly="state not in ('make_recommendations', 'confirm_diagnosis')"/>
                                         <button name="action_accept_recommendations" type="object" string="Accept" invisible="state not in ('make_recommendations')"/>
-                                    </tree>
                                 </group>
                             </page>
                         </notebook>

@@ -6,6 +6,16 @@ class DoctorVisit(models.Model):
     _name = 'hospital.doctor_visit'
     _description = 'Doctor Visit'
 
+    @api.depends('patient', 'doctor')
+    def _compute_name(self):
+        for rec in self:
+            if rec.patient.name and rec.doctor.name:
+                rec.name = f"{rec.patient.name} - {rec.doctor.name}"
+            else:
+                rec.name = False
+
+    name = fields.Char(string='Description', compute='_compute_name')
+
     state = fields.Selection(
         [
             ('create', 'Create Visit'),
@@ -81,6 +91,30 @@ class DoctorVisit(models.Model):
                 'message': 'Recommendations finish success',
                 'type': 'rainbow_man'
             }
+        }
+
+    def action_show_patient_diagnoses(self):
+        patient_diagnoses = self.env['hospital.diagnosis'].search([
+            ('patient', '=', self.patient.id),
+        ])
+        return {
+            'name': 'Patient Diagnoses',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hospital.diagnosis',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', patient_diagnoses.ids)],
+        }
+
+    def action_show_patient_researches(self):
+        patient_researches = self.env['hospital.research'].search([
+            ('patient', '=', self.patient.id),
+        ])
+        return {
+            'name': 'Patient Researches',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hospital.research',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', patient_researches.ids)],
         }
 
     @api.model
