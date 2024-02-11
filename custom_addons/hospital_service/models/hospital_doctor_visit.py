@@ -46,6 +46,13 @@ class DoctorVisit(models.Model):
             self.state = 'confirm_research'
         else:
             raise UserError("Not all research are in 'accepted' status.")
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Research finish success',
+                'type': 'rainbow_man'
+            }
+        }
 
     def action_skip_research(self):
         self.state = 'confirm_research'
@@ -55,12 +62,26 @@ class DoctorVisit(models.Model):
             self.state = 'confirm_diagnosis'
         else:
             raise UserError("Not all diagnosis are in 'accepted' status.")
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Diagnosis finish success',
+                'type': 'rainbow_man'
+            }
+        }
 
     def action_skip_diagnosis(self):
         self.state = 'confirm_diagnosis'
 
     def action_accept_recommendations(self):
         self.state = 'completed'
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Recommendations finish success',
+                'type': 'rainbow_man'
+            }
+        }
 
     @api.model
     def create(self, values):
