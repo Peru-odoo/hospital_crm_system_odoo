@@ -44,6 +44,24 @@ class Diagnosis(models.Model):
             self.doctor = self.doctor_visit.doctor
             self.patient = self.doctor_visit.patient
 
+    @api.onchange("doctor")
+    def _onchange_doctor(self):
+        if self.doctor.is_intern:
+            raise ValidationError("Interns cannot be mentors.")
+
+    @api.onchange("is_intern")
+    def _onchange_is_intern(self):
+        if self.is_intern and self.mentor_id:
+            self.mentor_id = False
+
+    @api.constrains("mentor_comment", "doctor", "doctor.is_intern")
+    def _check_mentor_comment(self):
+        for record in self:
+            if record.doctor.is_intern and not record.mentor_comment:
+                raise ValidationError(
+                    "Mentor Comment is required for intern diagnoses."
+                )
+
     @api.model
     def create(self, values):
         diagnosis_record = super(Diagnosis, self).create(values)
@@ -70,21 +88,3 @@ class Diagnosis(models.Model):
 
     def action_reconsider_diagnosis(self):
         self.status_diagnosis = "reconsider"
-
-    @api.onchange("doctor")
-    def _onchange_doctor(self):
-        if self.doctor.is_intern:
-            raise ValidationError("Interns cannot be mentors.")
-
-    @api.onchange("is_intern")
-    def _onchange_is_intern(self):
-        if self.is_intern and self.mentor_id:
-            self.mentor_id = False
-
-    @api.constrains("mentor_comment", "doctor", "doctor.is_intern")
-    def _check_mentor_comment(self):
-        for record in self:
-            if record.doctor.is_intern and not record.mentor_comment:
-                raise ValidationError(
-                    "Mentor Comment is required for intern diagnoses."
-                )

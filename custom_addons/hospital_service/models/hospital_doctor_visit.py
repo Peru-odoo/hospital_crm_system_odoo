@@ -40,6 +40,14 @@ class DoctorVisit(models.Model):
         "hospital.diagnosis", "doctor_visit", string="Diagnosis"
     )
 
+    @api.onchange("time_slot")
+    def _onchange_time_slot(self):
+        if self.time_slot:
+            previous_slot = self._origin.time_slot if self._origin else False
+            if previous_slot:
+                previous_slot.is_slot_occupied = False
+            self.time_slot.is_slot_occupied = True
+
     @api.depends("patient", "doctor")
     def _compute_name(self):
         for rec in self:
@@ -48,13 +56,23 @@ class DoctorVisit(models.Model):
             else:
                 rec.name = False
 
-    @api.onchange("time_slot")
-    def _onchange_time_slot(self):
-        if self.time_slot:
-            previous_slot = self._origin.time_slot if self._origin else False
-            if previous_slot:
-                previous_slot.is_slot_occupied = False
-            self.time_slot.is_slot_occupied = True
+    @api.model
+    def create(self, values):
+        record = super(DoctorVisit, self).create(values)
+        if record:
+            record.write({"state": "new"})
+        return record
+
+    def unlink(self):
+        for record in self:
+            if record.state != "new":
+                raise UserError("Cannot delete a record with status other than 'new'.")
+        return super(DoctorVisit, self).unlink()
+
+    def write(self, values):
+        if "recommendations" in values:
+            self.state = "make_recommendations"
+        return super(DoctorVisit, self).write(values)
 
     def action_finish_research(self):
         if all(
@@ -131,23 +149,3 @@ class DoctorVisit(models.Model):
             "view_mode": "tree,form",
             "domain": [("id", "in", patient_researches.ids)],
         }
-
-    @api.model
-    def create(self, values):
-        record = super(DoctorVisit, self).create(values)
-        if record:
-            record.write({"state": "new"})
-        return record
-
-    def unlink(self):
-        for record in self:
-            if record.state != "new":
-                raise UserError(
-                    "Cannot delete a record " "with status other than 'new'."
-                )
-        return super(DoctorVisit, self).unlink()
-
-    def write(self, values):
-        if "recommendations" in values:
-            self.state = "make_recommendations"
-        return super(DoctorVisit, self).write(values)
