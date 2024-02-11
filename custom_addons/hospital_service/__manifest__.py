@@ -20,8 +20,7 @@
         "views/hospital_personal_doctor_history_view.xml",
         'views/hospital_change_doctor_wizard_form_view.xml',
         "views/hospital_report_wizard_enter_date_view.xml",
-        "views/hospital_report_wizard_display_information__view.xml",
-
+        "views/hospital_report_wizard_display_information_view.xml",
         "views/menu_items.xml",
 
         # Data files
