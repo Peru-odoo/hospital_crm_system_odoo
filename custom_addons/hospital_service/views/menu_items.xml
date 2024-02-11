@@ -8,17 +8,15 @@
             <menuitem id="menu_hospital_contact_person" name="Contact person" action="hospital_service.action_hospital_contact_person"/>
             <menuitem id="menu_hospital_doctor" name="Doctor" action="hospital_service.action_hospital_doctor"/>
             <menuitem id="menu_hospital_patient" name="Patient" action="hospital_service.action_hospital_patient"/>
+            <menuitem id="menu_hospital_personal_doctor_history" name="Personal Doctor History" action="hospital_service.action_hospital_personal_doctor_history"/>
         </menuitem>
         <menuitem id="menu_hospital_settings" name="Settings">
             <menuitem id="menu_hospital_directory_disease" name="Directory diseases" action="hospital_service.action_hospital_disease_tree"/>
             <menuitem id="menu_hospital_research_type" name="Research type" action="hospital_service.action_hospital_research_type"/>
             <menuitem id="menu_hospital_sample_type" name="Sample type" action="hospital_service.action_hospital_sample_type"/>
             <menuitem id="menu_hospital_doctor_schedule" name="Doctor Schedule" action="hospital_service.action_doctor_schedule"/>
-        </menuitem>
-        <menuitem id="menu_hospital_constructor" name="Constructor">
             <menuitem id="menu_hospital_research" name="Research" action="hospital_service.action_hospital_research"/>
             <menuitem id="menu_hospital_diagnosis" name="Diagnosis" action="hospital_service.action_hospital_diagnosis"/>
-            <menuitem id="menu_hospital_personal_doctor_history" name="Personal Doctor History" action="hospital_service.action_hospital_personal_doctor_history"/>
         </menuitem>
     </menuitem>
 </odoo>

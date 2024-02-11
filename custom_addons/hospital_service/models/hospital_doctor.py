@@ -8,6 +8,10 @@ class Doctor(models.Model):
 
     _inherit = "hospital.abstractperson"
 
+    _sql_constraints = [
+        ("unique_specialty", "UNIQUE(specialty)", "Doctor specialty must be unique."),
+    ]
+
     specialty = fields.Char(string="Speciality")
     is_intern = fields.Boolean(string="Intern")
     mentor_id = fields.Many2one(

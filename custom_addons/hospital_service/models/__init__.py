@@ -1,4 +1,3 @@
-from . import hospital_service
 from . import hospital_directory_diseases
 from . import hospital_research_type
 from . import hospital_sample_type

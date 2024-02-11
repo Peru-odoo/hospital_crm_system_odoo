@@ -9,6 +9,14 @@ class Patient(models.Model):
 
     _inherit = "hospital.abstractperson"
 
+    _sql_constraints = [
+        (
+            "unique_passport_data",
+            "UNIQUE(passport_data)",
+            "Passport data must be unique.",
+        ),
+    ]
+
     birth_date = fields.Date(string="Date of birth")
     age = fields.Integer(string="Age", compute="_compute_age", store=True)
     passport_data = fields.Char(string="Passport data")
