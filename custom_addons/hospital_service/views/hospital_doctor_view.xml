@@ -23,6 +23,9 @@
             <field name="model">hospital.doctor</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button string="Print Disease Report" type="object" class="oe_highlight" name="print_disease_report"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="name"/>

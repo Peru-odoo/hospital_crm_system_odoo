@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="view_report_wizard_tree" model="ir.ui.view">
+            <field name="name">hospital.report.wizard.tree</field>
+            <field name="model">hospital.report.disease</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="disease" string="Disease"/>
+                    <field name="diagnoses_count" string="Diagnoses Count"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -13,3 +13,4 @@ from . import hospital_contact_person
 from . import hospital_doctor
 from . import hospital_patient
 from . import hospital_report_wizard
+from . import hospital_report_disease_model
