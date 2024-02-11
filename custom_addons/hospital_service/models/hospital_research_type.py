@@ -4,6 +4,7 @@ from odoo import models, fields, api
 class ResearchType(models.Model):
     _name = "hospital.research_type"
     _description = "Research Type"
+    _order = "name"
 
     sql_constraints = [
         ("unique_name", "UNIQUE(name)", "Research Type name must be unique."),

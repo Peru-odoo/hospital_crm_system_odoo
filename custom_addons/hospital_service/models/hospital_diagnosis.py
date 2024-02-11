@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError, UserError
 class Diagnosis(models.Model):
     _name = "hospital.diagnosis"
     _description = "Diagnosis"
+    _order = "diagnosis_date DESC"
 
     name = fields.Char(string="Description", compute="_compute_name")
     patient = fields.Many2one("hospital.patient", string="Patient", required=True)

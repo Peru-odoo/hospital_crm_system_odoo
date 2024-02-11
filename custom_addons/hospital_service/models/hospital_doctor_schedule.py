@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 class DoctorSchedule(models.Model):
     _name = "hospital.schedule"
     _description = "Doctor Availability"
+    _order = "appointment_date DESC"
 
     name = fields.Char(string="Description", compute="_compute_name")
     doctor_id = fields.Many2one("hospital.doctor", string="Doctor", required=True)

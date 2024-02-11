@@ -5,6 +5,7 @@ from odoo.exceptions import UserError
 class DoctorVisit(models.Model):
     _name = "hospital.doctor_visit"
     _description = "Doctor Visit"
+    _order = "appointment_date DESC"
 
     name = fields.Char(string="Description", compute="_compute_name")
     state = fields.Selection(

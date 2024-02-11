@@ -4,6 +4,7 @@ from odoo import models, fields, api
 class Disease(models.Model):
     _name = "hospital.disease"
     _description = "Disease Directory"
+    _order = "name"
 
     _sql_constraints = [
         ("unique_name", "UNIQUE(name)", "Disease name must be unique."),

@@ -5,6 +5,7 @@ from odoo.exceptions import UserError
 class Research(models.Model):
     _name = "hospital.research"
     _description = "Research"
+    _order = "name"
 
     name = fields.Char(string="Name", required=True)
     patient = fields.Many2one("hospital.patient", string="Patient", required=True)

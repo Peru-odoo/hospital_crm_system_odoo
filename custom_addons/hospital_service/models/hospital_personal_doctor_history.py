@@ -4,6 +4,7 @@ from odoo import fields, models, api
 class PersonalDoctorHistory(models.Model):
     _name = "hospital.personal_doctor_history"
     _description = "Personal Doctor History"
+    _order = "appointment_date DESC"
 
     name = fields.Char(string="Description", compute="_compute_name")
     patient = fields.Many2one("hospital.patient", string="Patient", required=True)
