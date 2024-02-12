@@ -11,6 +11,8 @@
                     <field name="research_type"/>
                     <field name="sample_type"/>
                     <field name="conclusions"/>
+                    <field name="color" widget="color_picker"/>
+
                 </tree>
             </field>
          </record>
@@ -26,6 +28,7 @@
                             <field name="research_type"/>
                             <field name="sample_type"/>
                             <field name="conclusions"/>
+                            <field name="color" widget="color_picker"/>
                         </group>
                     </sheet>
                 </form>

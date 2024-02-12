@@ -58,7 +58,7 @@
                                         <field name="disease" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="treatment" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="diagnosis_date" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
-                                        <field name="research_ids" widget="many2many_tags" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
+                                        <field name="research_ids" widget="many2many_tags" options="{'color_field': 'color'}" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="mentor_comment" readonly="status_diagnosis in ['accepted_diagnosis'],"/>
                                         <field name="status_diagnosis" readonly="1"/>
                                         <button name="action_accept_diagnosis" type="object" icon="fa-check" string="Accept" invisible="status_diagnosis == 'accepted_diagnosis'"/>

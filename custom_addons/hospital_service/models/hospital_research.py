@@ -18,6 +18,7 @@ class Research(models.Model):
         string="Status Research",
     )
     doctor_visit = fields.Many2one("hospital.doctor_visit", string="Doctor Visit")
+    color = fields.Integer(string="Color")
 
     def name_get(self):
         result = []
