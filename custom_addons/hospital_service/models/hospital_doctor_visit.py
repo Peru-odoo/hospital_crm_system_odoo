@@ -149,3 +149,7 @@ class DoctorVisit(models.Model):
             "view_mode": "tree,form",
             "domain": [("id", "in", patient_researches.ids)],
         }
+
+    def _get_report_base_filename(self):
+        self.ensure_one()
+        return "Doctor Visit - %s" % self.name

@@ -1,0 +1,120 @@
+<odoo>
+    <data>
+        <template id="report_doctor_visit_document">
+            <t t-call="web.external_layout">
+                <div class="mt-5">
+                    <div class="page">
+                        <h2>
+                            Doctor Visit Report
+                        </h2>
+                        <div id="informations" class="row mt-4 mb-4">
+                            <div class="col-auto col-3">
+                                <strong>Doctor:</strong>
+                                <p class="m-0" t-field="o.doctor"/>
+                            </div>
+                            <div class="col-auto col-3">
+                                <strong>Patient:</strong>
+                                <p class="m-0" t-field="o.patient"/>
+                            </div>
+                            <div class="col-auto col-3">
+                                <strong>Appointment date:</strong>
+                                <p class="m-0" t-field="o.appointment_date"/>
+                            </div>
+                            <div class="col-auto col-3">
+                                <strong>Appointment time:</strong>
+                                <p class="m-0" t-field="o.time_slot"/>
+                            </div>
+
+                            <div class="col-auto col-12">
+                                <strong>Recommendations:</strong>
+                                <p class="m-0" t-field="o.recommendations"/>
+                            </div>
+
+                        </div>
+                        <h4>
+                            Research Report
+                        </h4>
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                                <tr>
+                                    <th class="text-start">Name</th>
+                                    <th class="text-start">Research Type</th>
+                                    <th class="text-start">Simple Type</th>
+                                    <th class="text-start">Conclusions</th>
+                                    <th class="text-end">Status Research</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.research_ids" t-as="research">
+                                    <tr>
+                                        <td class="text-start">
+                                            <span t-field="research.name"/>
+                                        </td>
+                                        <td class="text-start">
+                                            <span t-field="research.research_type"/>
+                                        </td>
+                                         <td class="text-start">
+                                            <span t-field="research.sample_type"/>
+                                        </td>
+                                         <td class="text-start">
+                                            <span t-field="research.conclusions"/>
+                                        </td>
+                                         <td class="text-end">
+                                            <span t-field="research.status_research"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <h4>
+                            Diagnosis Report
+                        </h4>
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                                <tr>
+                                    <th class="text-start">Disease</th>
+                                    <th class="text-start">Prescribed treatment</th>
+                                    <th class="text-start">Diagnosis Date</th>
+                                    <th class="text-start">Research</th>
+                                    <th class="text-end">Mentor Comment</th>
+                                    <th class="text-start">Status Diagnosis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.diagnosis_ids" t-as="diagnosis">
+                                    <tr>
+                                        <td class="text-start">
+                                            <span t-field="diagnosis.disease"/>
+                                        </td>
+                                        <td class="text-start">
+                                            <span t-field="diagnosis.treatment"/>
+                                        </td>
+                                         <td class="text-start">
+                                            <span t-field="diagnosis.diagnosis_date"/>
+                                        </td>
+                                         <td class="text-start">
+                                            <span t-field="diagnosis.research_ids"/>
+                                        </td>
+                                        <td class="text-end">
+                                            <span t-field="diagnosis.mentor_comment"/>
+                                        </td>
+                                         <td class="text-end">
+                                            <span t-field="diagnosis.status_diagnosis"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="report_hospital_doctor_visit">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="hospital_service.report_doctor_visit_document"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
